@@ -11,7 +11,6 @@ const highscore = document.querySelector(".label-highscore");
 // logic
 
 let number = Math.trunc(Math.random() * 20 + 1);
-// secretNumber.textContent = number;
 let yourScore = 20;
 
 check.addEventListener("click", cac);
@@ -24,6 +23,10 @@ function cac() {
   // equal number
   else if (myGs == number) {
     message.textContent = "Correct number🏆";
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    secretNumber.style.width = "30rem";
+    secretNumber.textContent = number;
+
   }
   // higher number
   else if (myGs > number) {
