@@ -6,7 +6,7 @@ const score = document.querySelector(".score");
 const guess = document.querySelector(".guess");
 const secretNumber = document.querySelector(".number");
 const again = document.querySelector(".again");
-const highscore = document.querySelector(".label-highscore");
+const highscore = document.querySelector(".highscore");
 
 // logic
 
@@ -26,7 +26,6 @@ function cac() {
     document.querySelector("body").style.backgroundColor = "#60b347";
     secretNumber.style.width = "30rem";
     secretNumber.textContent = number;
-
   }
   // higher number
   else if (myGs > number) {
@@ -50,4 +49,19 @@ function cac() {
       score.textContent = 0;
     }
   }
+}
+
+// reset
+
+again.addEventListener("click", reset);
+
+function reset() {
+  guess.value = "";
+  score.textContent = 20;
+  highscore.value = 0;
+  document.querySelector("body").style.backgroundColor = "#333";
+  secretNumber.style.width = "15rem";
+  secretNumber.textContent = "?";
+  message.textContent = "Start guessing...";
+  number = Math.trunc(Math.random() * 20 + 1);
 }
