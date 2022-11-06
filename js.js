@@ -17,11 +17,16 @@ let yourScore = 20;
 check.addEventListener("click", cac);
 function cac() {
   let myGs = guess.value;
+  // no number
   if (!myGs) {
     message.textContent = "No number❗";
-  } else if (myGs == number) {
+  }
+  // equal number
+  else if (myGs == number) {
     message.textContent = "Correct number🏆";
-  } else if (myGs > number) {
+  }
+  // higher number
+  else if (myGs > number) {
     if (yourScore > 1) {
       message.textContent = "To high📈";
       yourScore--;
@@ -30,7 +35,9 @@ function cac() {
       message.textContent = "You lost the game!💣";
       score.textContent = 0;
     }
-  } else if (myGs < number) {
+  }
+  // lower number
+  else if (myGs < number) {
     if (yourScore > 1) {
       message.textContent = "To low📉";
       yourScore--;
