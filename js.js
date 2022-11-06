@@ -10,10 +10,9 @@ const highscore = document.querySelector(".highscore");
 
 // logic
 
+check.addEventListener("click", cac);
 let number = Math.trunc(Math.random() * 20 + 1);
 let yourScore = 20;
-
-check.addEventListener("click", cac);
 function cac() {
   let myGs = guess.value;
   // no number
@@ -26,6 +25,14 @@ function cac() {
     document.querySelector("body").style.backgroundColor = "#60b347";
     secretNumber.style.width = "30rem";
     secretNumber.textContent = number;
+
+    // highscore
+
+    let yourHighscore = 0;
+    if (yourScore > yourHighscore) {
+      yourHighscore = yourScore;
+      highscore.textContent = yourHighscore;
+    }
   }
   // higher number
   else if (myGs > number) {
@@ -57,8 +64,9 @@ again.addEventListener("click", reset);
 
 function reset() {
   guess.value = "";
+  yourScore = 20;
   score.textContent = 20;
-  highscore.value = 0;
+  highscore.value = yourScore;
   document.querySelector("body").style.backgroundColor = "#333";
   secretNumber.style.width = "15rem";
   secretNumber.textContent = "?";
